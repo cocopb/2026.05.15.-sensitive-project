@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FROM TEXT TO FEELING | AI 감성 분석 서비스</title>
+    <meta name="description" content="사용자가 입력한 문장을 AI가 분석하여 긍정, 부정, 중립 감성을 보여줍니다.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">FROM TEXT TO FEELING</div>
+            <nav class="nav">
+                <span class="status-indicator">● System Online</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">FROM TEXT<br>TO FEELING</h1>
+                <p class="hero-subtitle">문장을 입력하면 AI가 감성을 정밀하게 분석합니다.</p>
+            </div>
+        </section>
+
+        <section class="analysis-section">
+            <div class="container">
+                <div class="input-panel">
+                    <div class="panel-header">
+                        <span class="panel-title">분석할 텍스트를 입력하세요</span>
+                        <span class="char-count">0 / 1000</span>
+                    </div>
+                    <textarea id="textInput" placeholder="이곳에 문장을 입력하세요..." maxlength="1000"></textarea>
+                    <button id="analyzeBtn" class="btn btn-primary">분석하기</button>
+                </div>
+
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>AI가 감성을 분석 중입니다...</p>
+                </div>
+
+                <div id="errorBox" class="error-box hidden">
+                    <p id="errorMessage"></p>
+                </div>
+
+                <div id="resultCard" class="result-card hidden">
+                    <div class="result-header">
+                        <div class="sentiment-badge" id="sentimentBadge">긍정</div>
+                        <div class="confidence-score">
+                            <span class="label">신뢰도</span>
+                            <span class="value" id="confidenceValue">0%</span>
+                        </div>
+                    </div>
+                    <div class="result-body">
+                        <h3>분석 결과</h3>
+                        <p id="analysisReason"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Sentiment Analysis Service. Powered by OpenAI.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
